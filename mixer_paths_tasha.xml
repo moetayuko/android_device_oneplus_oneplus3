@@ -228,6 +228,8 @@
     <ctl name="SPL SRC3 MUX" value="ZERO" />
     <ctl name="RX INT1 SPLINE MIX HPHL Switch" value="0" />
     <ctl name="RX INT3 SPLINE MIX LO1 Switch" value="0" />
+    <ctl name="RX INT1 SPLINE MIX HPHL Native Switch" value="0" />
+    <ctl name="RX INT2 SPLINE MIX HPHR Native Switch" value="0" />
     <ctl name="RX INT2 SPLINE MIX HPHR Switch" value="0" />
     <ctl name="RX INT4 SPLINE MIX LO2 Switch" value="0" />
     <ctl name="RX INT5 SPLINE MIX LO3 Switch" value="0" />
@@ -1861,6 +1863,16 @@
         <ctl name="SPL SRC1 MUX" value="SRC_IN_HPHR" />
         <ctl name="RX INT1 SPLINE MIX HPHL Switch" value="1" />
         <ctl name="RX INT2 SPLINE MIX HPHR Switch" value="1" />
+    </path>
+
+
+    <path name="true-native-mode">
+        <ctl name="RX INT1_2 MUX" value="ZERO" />
+        <ctl name="RX INT2_2 MUX" value="ZERO" />
+        <ctl name= "RX INT1_1 MIX1 INP0" value="RX0" />
+        <ctl name= "RX INT2_1 MIX1 INP0" value="RX1" />
+        <ctl name= "RX INT1 SPLINE MIX HPHL Native Switch" value="1" />
+        <ctl name= "RX INT2 SPLINE MIX HPHR Native Switch" value="1" />
     </path>
 
     <path name="line">
