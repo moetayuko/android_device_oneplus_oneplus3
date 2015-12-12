@@ -165,4 +165,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
 
+# List of AAPT configurations
 PRODUCT_AAPT_CONFIG += xlarge large
