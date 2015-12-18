@@ -53,6 +53,8 @@
         <item>1000</item> <!-- CPUBOOST MIN_FREQ resource value -->
         <item>0x40C00000</item> <!-- SCHEDBOOST resource opcode-->
         <item>0x1</item>        <!-- SCHEDBOOST resource value-->
+        <item>0x40C28000</item> <!-- SCHEDGROUP resource opcode-->
+        <item>0x1</item>        <!-- SCHEDGROUP resource value-->
    </integer-array>
 
    <!-- Operating volatage for bluetooth controller. 0 by default-->
