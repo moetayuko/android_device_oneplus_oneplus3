@@ -166,3 +166,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
 
 PRODUCT_AAPT_CONFIG += xlarge large
+
+#Android fingerprint daemon implementation
+PRODUCT_PACKAGES += \
+    fingerprintd
