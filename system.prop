@@ -35,7 +35,7 @@ qcom.hw.aac.encoder=true
 persist.cne.feature=3
 
 #system prop for enabling/disabling Android XLAT
-persist.net.doxlat=true
+persist.net.doxlat=false
 
 #system props for the MM modules
 media.stagefright.enable-player=true
