@@ -33,6 +33,7 @@ PRODUCT_BOOT_JARS += WfdCommon
 PRODUCT_BOOT_JARS += com.qti.dpmframework
 PRODUCT_BOOT_JARS += dpmapi
 PRODUCT_BOOT_JARS += com.qti.location.sdk
+PRODUCT_BOOT_JARS += oem-services
 endif
 
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
