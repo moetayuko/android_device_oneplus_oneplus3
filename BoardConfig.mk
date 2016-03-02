@@ -4,7 +4,8 @@
 #
 
 TARGET_BOARD_PLATFORM := msm8996
-TARGET_BOOTLOADER_BOARD_NAME := msm8996
+# This value will be shown on fastboot menu
+TARGET_BOOTLOADER_BOARD_NAME := QC_Reference_Phone
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
