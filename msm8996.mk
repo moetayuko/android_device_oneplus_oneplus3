@@ -1,7 +1,9 @@
-DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-BOARD_HAVE_QCOM_FM := true
-TARGET_USES_NQ_NFC := true
+#DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := false # bring-up hack
+#BOARD_HAVE_QCOM_FM := true
+TARGET_USES_NQ_NFC := false # bring-up hack
+
+TARGET_USES_QTIC := false # bring-up hack
 
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
@@ -30,27 +32,27 @@ PRODUCT_BOOT_JARS += tcmiface
 
 ifneq ($(strip $(QCPATH)),)
 PRODUCT_BOOT_JARS += WfdCommon
-PRODUCT_BOOT_JARS += com.qti.dpmframework
-PRODUCT_BOOT_JARS += dpmapi
-PRODUCT_BOOT_JARS += com.qti.location.sdk
+#PRODUCT_BOOT_JARS += com.qti.dpmframework
+#PRODUCT_BOOT_JARS += dpmapi
+#PRODUCT_BOOT_JARS += com.qti.location.sdk
 endif
 
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio
 endif #BOARD_HAVE_QCOM_FM
-PRODUCT_BOOT_JARS += qcmediaplayer
+#PRODUCT_BOOT_JARS += qcmediaplayer  # bring-up hack
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
 # Audio configuration file
-ifeq ($(TARGET_USES_AOSP), true)
+#ifeq ($(TARGET_USES_AOSP), true)
 PRODUCT_COPY_FILES += \
     device/qcom/common/media/audio_policy.conf:system/etc/audio_policy.conf
-else
-PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/audio_policy.conf:system/etc/audio_policy.conf
-endif
+#else
+#PRODUCT_COPY_FILES += \
+#    device/qcom/msm8996/audio_policy.conf:system/etc/audio_policy.conf
+#endif
 
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \

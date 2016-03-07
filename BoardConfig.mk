@@ -10,7 +10,8 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := kryo
+#TARGET_CPU_VARIANT := kryo
+TARGET_CPU_VARIANT := generic
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
@@ -33,6 +34,9 @@ MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
+
+USE_CLANG_PLATFORM_BUILD := true
+
 -include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
 
 # Some framework code requires this to enable BT
@@ -88,10 +92,7 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PER_MGR_ENABLED := true
 
 #Enable HW based full disk encryption
-TARGET_HW_DISK_ENCRYPTION := true
-
-#Enable SW based full disk encryption
-TARGET_SWV8_DISK_ENCRYPTION := false
+TARGET_HW_DISK_ENCRYPTION := false
 
 #Enable PD locater/notifier
 TARGET_PD_SERVICE_ENABLED := true
