@@ -46,27 +46,7 @@ endif #BOARD_HAVE_QCOM_FM
 PRODUCT_PACKAGES += libGLES_android
 
 # Audio configuration file
-#ifeq ($(TARGET_USES_AOSP), true)
-PRODUCT_COPY_FILES += \
-    device/qcom/common/media/audio_policy.conf:system/etc/audio_policy.conf
-#else
-#PRODUCT_COPY_FILES += \
-#    device/qcom/msm8996/audio_policy.conf:system/etc/audio_policy.conf
-#endif
-
-PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    device/qcom/msm8996/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    device/qcom/msm8996/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/qcom/msm8996/mixer_paths_tasha.xml:system/etc/mixer_paths_tasha.xml \
-    device/qcom/msm8996/mixer_paths_dtp.xml:system/etc/mixer_paths_dtp.xml \
-    device/qcom/msm8996/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
-    device/qcom/msm8996/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
-    device/qcom/msm8996/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
-    device/qcom/msm8996/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
-    device/qcom/msm8996/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
-    device/qcom/msm8996/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/qcom/msm8996/audio_platform_info.xml:system/etc/audio_platform_info.xml
+-include $(TOPDIR)hardware/qcom/audio/configs/msm8996/msm8996.mk
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
@@ -80,10 +60,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
-
-# Listen configuration file
-PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/listen_platform_info.xml:system/etc/listen_platform_info.xml
 
 #ANT+ stack
 PRODUCT_PACKAGES += \
@@ -156,14 +132,6 @@ PRODUCT_COPY_FILES += \
 # SmartcardService, SIM1,SIM2,eSE1 not including eSE2,SD1 as default
 ADDITIONAL_BUILD_PROPERTIES += persist.nfc.smartcard.config=SIM1,SIM2,eSE1
 endif # TARGET_USES_NQ_NFC
-
-# Reduce client buffer size for fast audio output tracks
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1
-
-# Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio_hal.period_size=192
 
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
