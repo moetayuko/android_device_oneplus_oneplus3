@@ -2,6 +2,7 @@ DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_HAVE_QCOM_FM := true
 TARGET_USES_NQ_NFC := true
+TARGET_KERNEL_VERSION := 3.18
 
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
