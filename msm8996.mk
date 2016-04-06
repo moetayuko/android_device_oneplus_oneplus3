@@ -26,6 +26,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/qcom/common/common64.mk)
 
+#msm8996 platform WLAN Chipset
+WLAN_CHIPSET := qca_cld
+
 PRODUCT_NAME := msm8996
 PRODUCT_DEVICE := msm8996
 PRODUCT_BRAND := Android
@@ -63,6 +66,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
+
+ifneq ($(WLAN_CHIPSET),)
+PRODUCT_PACKAGES += $(WLAN_CHIPSET)_wlan.ko
+endif
 
 #ANT+ stack
 PRODUCT_PACKAGES += \
