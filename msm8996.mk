@@ -8,6 +8,9 @@ TARGET_USES_QTIC := false # bring-up hack
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
 
+# Enable features in video HAL that can compile only on this platform
+TARGET_USES_MEDIA_EXTENSIONS := true
+
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
 PRODUCT_COPY_FILES += device/qcom/msm8996/media_profiles.xml:system/etc/media_profiles.xml \
