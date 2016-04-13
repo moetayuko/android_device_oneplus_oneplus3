@@ -4,6 +4,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := false # bring-up hack
 TARGET_USES_NQ_NFC := false # bring-up hack
 
 TARGET_USES_QTIC := false # bring-up hack
+TARGET_KERNEL_VERSION := 3.18
 
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
