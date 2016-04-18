@@ -1,5 +1,5 @@
 #DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := false # bring-up hack
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_HAVE_QCOM_FM := true
 TARGET_USES_NQ_NFC := false # bring-up hack
 
