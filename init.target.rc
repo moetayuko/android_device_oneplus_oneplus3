@@ -172,6 +172,13 @@ service perfd /system/vendor/bin/perfd
    user root
    disabled
 
+service gamed /system/vendor/bin/gamed
+   class main
+   user system
+   group system
+   disabled
+   socket gamed seqpacket 0640 system system
+
 service seempd /system/bin/seempd
    class late_start
    user system
