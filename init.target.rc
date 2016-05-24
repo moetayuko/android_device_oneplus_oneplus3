@@ -167,11 +167,6 @@ service qseecomd /system/bin/qseecomd
    user root
    group root
 
-service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   disabled
-
 service gamed /system/vendor/bin/gamed
    class main
    user system
