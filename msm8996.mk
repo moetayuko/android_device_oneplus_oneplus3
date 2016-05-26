@@ -3,7 +3,6 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_HAVE_QCOM_FM := true
 TARGET_USES_NQ_NFC := false # bring-up hack
 
-TARGET_USES_QTIC := false # bring-up hack
 TARGET_KERNEL_VERSION := 3.18
 
 #QTIC flag
