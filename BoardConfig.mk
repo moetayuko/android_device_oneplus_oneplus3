@@ -100,7 +100,7 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PER_MGR_ENABLED := true
 
 #Enable HW based full disk encryption
-TARGET_HW_DISK_ENCRYPTION := false
+TARGET_HW_DISK_ENCRYPTION := true
 
 #Enable PD locater/notifier
 TARGET_PD_SERVICE_ENABLED := true
