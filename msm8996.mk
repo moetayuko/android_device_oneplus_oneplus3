@@ -67,6 +67,11 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8996/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     device/qcom/msm8996/audio_platform_info.xml:system/etc/audio_platform_info.xml
 
+# ifdef VENDOR_EDIT
+# zhiguang.su@MultiMedia.AudioDrv on 2015-10-21 ,add pa param and audio path.
+PRODUCT_COPY_FILES += \
+     device/qcom/msm8996//tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt
+#endif
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
@@ -171,3 +176,5 @@ PRODUCT_AAPT_CONFIG += xlarge large
 #Android fingerprint daemon implementation
 PRODUCT_PACKAGES += \
     fingerprintd
+
+$(call inherit-product-if-exists, device/qcom/msm8996/device-vendor.mk)
