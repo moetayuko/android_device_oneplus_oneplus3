@@ -71,4 +71,22 @@
         <item>0x40C00000</item> <!-- SCHEDBOOST resource opcode-->
         <item>0x1</item>        <!-- SCHEDBOOST resource value-->
    </integer-array>
+
+   <bool name="config_debugBoost">true</bool>
+   <!-- Activities list for custom boosts -->
+   <string-array translatable="false" name="debugBoost_activityList">
+        <item>com.android.gallery3d</item>
+        <item>com.android.music</item>
+        <item>com.android.contacts</item>
+        <item>com.android.chrome</item>
+        <item>com.google.android.gm</item>
+   </string-array>
+   <!-- Params for custom debug  boost -->
+   <integer name="debugBoost_timeout">150</integer>
+   <integer-array name="debugBoost_param_value">
+        <item>0x40800100</item> <!-- SCALING_MIN_FREQ little cluster resource opcode-->
+        <item>0x4A6</item>      <!-- SCALING_MIN_FREQ of 1190 MHz for little cluster resource value-->
+        <item>0x40800000</item> <!-- SCALING_MIN_FREQ big cluster resource opcode -->
+        <item>0x4A6</item>      <!-- SCALING_MIN_FREQ of 1190 MHz big cluster resource value -->
+   </integer-array>
 </resources>
