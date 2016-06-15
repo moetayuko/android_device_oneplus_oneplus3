@@ -182,6 +182,9 @@ TARGET_RIL_VARIANT := caf
 # Sensor
 USE_SENSOR_MULTI_HAL := true
 
+# Time services
+BOARD_USES_QC_TIME_SERVICES := true
+
 # Wifi
 CONFIG_EAP_PROXY := dummy
 CONFIG_EAP_PROXY_DUAL_SIM := true
