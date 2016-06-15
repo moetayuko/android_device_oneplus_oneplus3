@@ -92,6 +92,7 @@ TARGET_USE_VENDOR_CAMERA_EXT := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # CM Hardware
+BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS := \
     hardware/cyanogen/cmhw
 
@@ -155,6 +156,10 @@ TARGET_KERNEL_APPEND_DTB := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8996
 TARGET_KERNEL_CONFIG := cyanogenmod_oneplus3_defconfig
+
+# Lights
+BOARD_LIGHTS_VARIANT := qpnp
+TARGET_PROVIDES_LIBLIGHT := true
 
 # MDTP (Mobile Device Theft Protection)
 TARGET_USE_MDTP := true
