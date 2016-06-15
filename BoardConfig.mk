@@ -132,6 +132,7 @@ USE_OPENGL_RENDERER := true
 
 # GPS
 TARGET_NO_RPC := true
+USE_DEVICE_SPECIFIC_GPS := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
