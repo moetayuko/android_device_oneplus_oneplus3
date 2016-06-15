@@ -177,6 +177,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/recovery.fstab
 
 # RIL
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
+TARGET_RIL_VARIANT := caf
 
 # Sensor
 USE_SENSOR_MULTI_HAL := true
