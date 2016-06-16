@@ -117,3 +117,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # List of AAPT configurations
 PRODUCT_AAPT_CONFIG += xlarge large
+
+#for android_filesystem_config.h
+PRODUCT_PACKAGES += \
+    fs_config_files
