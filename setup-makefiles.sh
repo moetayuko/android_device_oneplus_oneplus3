@@ -99,6 +99,10 @@ PRODUCT_PACKAGES += \\
 PRODUCT_PACKAGES += \\
     libthermalclient
 
+PRODUCT_PACKAGES += \\
+    qdcm_calib_data_samsung_s6e3fa3_1080p_cmd_mode_dsi_panel \\
+    qdcm_calib_data_samsung_s6e3fa3_1080p_video_mode_dsi_panel
+
 \$(call inherit-product, vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk)
 EOF
 
@@ -467,6 +471,20 @@ LOCAL_MODULE_PATH_64 := \$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 LOCAL_MODULE_PATH_32 := \$(2ND_TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 LOCAL_MULTILIB := both
 LOCAL_PROPRIETARY_MODULE := true
+include \$(BUILD_PREBUILT)
+
+include \$(CLEAR_VARS)
+LOCAL_MODULE       := qdcm_calib_data_samsung_s6e3fa3_1080p_cmd_mode_dsi_panel.xml
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := proprietary/etc/qdcm_calib_data_samsung_s6e3fa3_1080p_cmd_mode_dsi_panel.xml
+include \$(BUILD_PREBUILT)
+
+include \$(CLEAR_VARS)
+LOCAL_MODULE       := qdcm_calib_data_samsung_s6e3fa3_1080p_video_mode_dsi_panel.xml
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := proprietary/etc/qdcm_calib_data_samsung_s6e3fa3_1080p_video_mode_dsi_panel.xml
 include \$(BUILD_PREBUILT)
 
 \$(shell mkdir -p \$(PRODUCT_OUT)/system/vendor/lib/egl && pushd \$(PRODUCT_OUT)/system/vendor/lib > /dev/null && ln -s egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
