@@ -209,6 +209,31 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# NFC
+PRODUCT_PACKAGES += \
+    NQNfcNci \
+    libnqnfc-nci \
+    libnqnfc_nci_jni \
+    nfc_nci.nqx.default \
+    libp61-jcop-kit \
+    com.nxp.nfc.nq \
+    com.nxp.nfc.nq.xml \
+    nqnfcee_access.xml \
+    nqnfcse_access.xml \
+    Tag \
+    com.android.nfc_extras
+
+PRODUCT_COPY_FILES += \
+    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
+
 # Power HAL
 PRODUCT_PACKAGES += \
     power.msm8996

@@ -169,6 +169,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 # MDTP (Mobile Device Theft Protection)
 TARGET_USE_MDTP := true
 
+# NFC
+TARGET_USES_NQ_NFC := true
+
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
