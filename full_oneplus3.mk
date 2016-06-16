@@ -22,5 +22,5 @@ $(call inherit-product, device/oneplus/oneplus3/device.mk)
 PRODUCT_NAME := full_oneplus3
 PRODUCT_DEVICE := oneplus3
 PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := A3001
+PRODUCT_MODEL := OnePlus 3
 PRODUCT_MANUFACTURER := OnePlus
