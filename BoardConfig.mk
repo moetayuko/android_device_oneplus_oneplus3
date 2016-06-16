@@ -189,6 +189,9 @@ TARGET_PD_SERVICE_ENABLED := true
 # Peripheral Manager
 TARGET_PER_MGR_ENABLED := true
 
+# Power
+TARGET_POWERHAL_VARIANT := qcom
+
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 
