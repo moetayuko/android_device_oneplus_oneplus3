@@ -209,6 +209,9 @@ endif
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 TARGET_RIL_VARIANT := caf
 
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
 # Sensor
 USE_SENSOR_MULTI_HAL := true
 
