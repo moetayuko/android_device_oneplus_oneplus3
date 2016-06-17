@@ -161,6 +161,9 @@ TARGET_KERNEL_CONFIG := cyanogenmod_oneplus3_defconfig
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
 
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
 # MDTP (Mobile Device Theft Protection)
 TARGET_USE_MDTP := true
 
