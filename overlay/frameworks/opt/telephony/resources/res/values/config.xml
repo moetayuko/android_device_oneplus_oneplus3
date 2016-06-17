@@ -31,15 +31,15 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
      for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- control to enable or disable call transfer feature -->
-    <bool name="config_enable_calltransfer_over_ims">true</bool>
+    <!-- control to enable or disable call transfer feature
+    <bool name="config_enable_calltransfer_over_ims">true</bool> -->
 
     <!--Fully qualified class name of the plugin which would be
          dynamically loaded by TelephonyPluginDelegate-->
     <string name="telephony_plugin_class_name" translatable="false">com.qti.internal.telephony.QtiTelephonyPlugin</string>
 
-    <!--The locatiotion of .jar file which has the extended implementation
-         of telephony base classes.-->
-    <string name="telephony_plugin_lib_path" translatable="false">/system/framework/qti-telephony-common.jar</string>
+    <!--The .jar file name which has the extended implementation
+     of telephony base classes.-->
+    <string name="telephony_plugin_jar_name" translatable="false">qti-telephony-common.jar</string>
 
 </resources>
