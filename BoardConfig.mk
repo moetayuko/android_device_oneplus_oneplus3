@@ -95,7 +95,8 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # CM Hardware
 BOARD_HARDWARE_CLASS := \
-    hardware/cyanogen/cmhw
+    hardware/cyanogen/cmhw \
+    $(DEVICE_PATH)/cmhw
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
