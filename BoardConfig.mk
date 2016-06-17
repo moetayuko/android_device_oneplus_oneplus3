@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# inherit from Oppo common
+-include device/oppo/common/BoardConfigCommon.mk
+
 DEVICE_PATH := device/oneplus/oneplus3
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
@@ -95,7 +98,6 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # CM Hardware
 BOARD_HARDWARE_CLASS := \
-    hardware/cyanogen/cmhw \
     $(DEVICE_PATH)/cmhw
 
 # Charger
@@ -190,9 +192,6 @@ TARGET_PD_SERVICE_ENABLED := true
 
 # Peripheral Manager
 TARGET_PER_MGR_ENABLED := true
-
-# Power
-TARGET_POWERHAL_VARIANT := qcom
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
