@@ -101,6 +101,9 @@ char const*const BLUE_RAMP_STEP_MS_FILE
 char const*const RGB_BLINK_FILE
         = "/sys/class/leds/rgb/rgb_blink";
 
+char const*const BUTTON_FILE
+        = "/sys/class/leds/button-backlight/brightness";
+
 #define RAMP_SIZE 8
 static int BRIGHTNESS_RAMP[RAMP_SIZE]
         = { 0, 12, 25, 37, 50, 72, 85, 100 };
@@ -349,6 +352,20 @@ set_light_attention(struct light_device_t* dev,
     return 0;
 }
 
+static int
+set_light_buttons(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    int err = 0;
+    if(!dev) {
+        return -1;
+    }
+    pthread_mutex_lock(&g_lock);
+    err = write_int(BUTTON_FILE, state->color & 0xFF);
+    pthread_mutex_unlock(&g_lock);
+    return err;
+}
+
 /** Close the lights device */
 static int
 close_lights(struct light_device_t *dev)
@@ -379,6 +396,8 @@ static int open_lights(const struct hw_module_t* module, char const* name,
         set_light = set_light_battery;
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
         set_light = set_light_notifications;
+    else if (0 == strcmp(LIGHT_ID_BUTTONS, name))
+        set_light = set_light_buttons;
     else if (0 == strcmp(LIGHT_ID_ATTENTION, name))
         set_light = set_light_attention;
     else
