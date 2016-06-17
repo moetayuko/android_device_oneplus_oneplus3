@@ -122,9 +122,34 @@ on boot
     chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv
     chmod 0660 /sys/devices/virtual/timed_output/vibrator/vmax_mv
 
-    # Virtual keys
+    # Touchscreen
+    chown system system /proc/touchpanel/double_tap_enable
+    chmod 0660 /proc/touchpanel/double_tap_enable
+
+    chown system system /proc/touchpanel/camera_enable
+    chmod 0660 /proc/touchpanel/camera_enable
+
+    chown system system /proc/touchpanel/music_enable
+    chmod 0660 /proc/touchpanel/music_enable
+
+    chown system system /proc/touchpanel/flashlight_enable
+    chmod 0660 /proc/touchpanel/flashlight_enable
+
+    # Buttons
+    chown system system /proc/s1302/key_rep
+    chmod 0660 /proc/s1302/key_rep
+
     chown system system /proc/s1302/virtual_key
     chmod 0660 /proc/s1302/virtual_key
+
+    chown system system /proc/tri-state-key/keyCode_top
+    chmod 0660 /proc/tri-state-key/keyCode_top
+
+    chown system system /proc/tri-state-key/keyCode_middle
+    chmod 0660 /proc/tri-state-key/keyCode_middle
+
+    chown system system /proc/tri-state-key/keyCode_bottom
+    chmod 0660 /proc/tri-state-key/keyCode_bottom
 
     # LEDS
     chown system system /sys/class/leds/red/brightness
