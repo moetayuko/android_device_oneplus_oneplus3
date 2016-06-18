@@ -38,11 +38,11 @@ public class KeyDisabler {
     }
 
     public static boolean isActive() {
-        return (FileUtils.readOneLine(CONTROL_PATH).equals("0"));
+        return (FileUtils.readOneLine(CONTROL_PATH).equals("1"));
     }
 
     public static boolean setActive(boolean state) {
-        return FileUtils.writeLine(CONTROL_PATH, (state ? "0" : "1"));
+        return FileUtils.writeLine(CONTROL_PATH, (state ? "1" : "0"));
     }
 
 }
