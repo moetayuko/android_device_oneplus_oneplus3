@@ -19,6 +19,7 @@ DEVICE_PROVISIONED=1
 # Start in global mode
 ro.telephony.default_network=22,22
 persist.radio.multisim.config=dsds
+ro.telephony.default_cdma_sub=0
 
 debug.sf.hw=1
 debug.egl.hw=1
