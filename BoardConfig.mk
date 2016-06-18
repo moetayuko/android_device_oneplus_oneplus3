@@ -102,6 +102,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # CM Hardware
 BOARD_HARDWARE_CLASS := \
     $(DEVICE_PATH)/cmhw
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
