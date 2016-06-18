@@ -572,6 +572,7 @@ etc/permissions/telephonyservice.xml
 -framework/qcrilhook.jar
 framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
+lib64/libparam.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib/liblqe.so

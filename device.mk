@@ -107,6 +107,7 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8996 \
+    libxml2 \
     Snap
 
 # Charger
