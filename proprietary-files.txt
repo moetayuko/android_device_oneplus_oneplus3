@@ -465,6 +465,7 @@ vendor/lib/hw/keystore.msm8996.so
 vendor/lib64/hw/keystore.msm8996.so
 
 # Media
+lib/libOmxVenc.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
