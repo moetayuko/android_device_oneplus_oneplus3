@@ -21,6 +21,9 @@ DEVICE_PATH := device/oneplus/oneplus3
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := oneplus3,OnePlus3
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno530
