@@ -198,6 +198,16 @@ on boot
     chmod 0660 /sys/class/leds/blue/start_idx
     chmod 0660 /sys/class/leds/rgb/rgb_blink
 
+    # Graphics node permissions
+    chown system graphics /sys/class/graphics/fb0/dyn_pu
+    chown system graphics /sys/class/graphics/fb0/idle_time
+    chown system graphics /sys/class/graphics/fb0/mode
+    chown system graphics /sys/class/graphics/fb0/modes
+    chmod 0664 /sys/class/graphics/fb0/dyn_pu
+    chmod 0664 /sys/class/graphics/fb0/idle_time
+    chmod 0664 /sys/class/graphics/fb0/mode
+    chmod 0664 /sys/class/graphics/fb0/modes
+
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
 
