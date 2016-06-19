@@ -99,6 +99,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    libshim_camera \
     libxml2 \
     Snap
 

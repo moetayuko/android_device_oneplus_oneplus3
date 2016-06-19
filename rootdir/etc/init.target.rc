@@ -35,6 +35,7 @@ on early-init
 
 on post-fs
     export LD_PRELOAD libNimsWrap.so
+    export LD_SHIM_LIBS "/system/lib/hw/camera.msm8996.so|libshim_camera.so"
 
 on fs
     wait /dev/block/bootdevice
