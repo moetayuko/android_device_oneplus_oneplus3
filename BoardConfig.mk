@@ -213,6 +213,8 @@ TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_CRYPTO := true
 TW_NEW_ION_HEAP := true
+#TWRP_INCLUDE_LOGCAT := true
+#TARGET_USES_LOGD := true
 endif
 
 # RIL
