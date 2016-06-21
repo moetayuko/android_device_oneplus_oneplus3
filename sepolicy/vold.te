@@ -1,1 +1,1 @@
-allow vold proc_touchpanel:dir search;
+allow vold proc_touchpanel:dir { search read open };
