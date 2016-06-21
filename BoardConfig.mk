@@ -123,8 +123,6 @@ endif
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
 
-TARGET_LDPRELOAD := libNimsWrap.so
-
 # Enable build with MSM kernel
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 
