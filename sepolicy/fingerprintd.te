@@ -1,0 +1,5 @@
+allow fingerprintd tee_device:chr_file rw_file_perms;
+allow fingerprintd firmware_file:file r_file_perms;
+allow fingerprintd firmware_file:dir search;
+allow fingerprintd fingerprintd_data_file:sock_file { unlink create };
+allow fingerprintd sysfs:file write;

@@ -1,0 +1,5 @@
+# Fingerprint
+/data/fpc(/.*)?                             u:object_r:fingerprintd_data_file:s0
+
+/dev/block/bootdevice/by-name/oem_dycnvbk	u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/oem_stanvbk	u:object_r:modem_efs_partition_device:s0
