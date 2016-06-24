@@ -21,8 +21,9 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 PRODUCT_NAME := cm_oneplus3
-BOARD_VENDOR := oneplus
-TARGET_VENDOR := oneplus
+PRODUCT_DEVICE := oneplus3
+PRODUCT_MANUFACTURER := OnePlus
+PRODUCT_BRAND := OnePlus
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
