@@ -1,1 +1,1 @@
-allow ims system_prop:property_service set;
+allow ims diag_prop:property_service set;
