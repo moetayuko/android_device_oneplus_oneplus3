@@ -121,3 +121,7 @@ PRODUCT_AAPT_CONFIG += xlarge large
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# Add the overlay path
+PRODUCT_PACKAGE_OVERLAYS := $(QCPATH)/qrdplus/Extension/res \
+        $(PRODUCT_PACKAGE_OVERLAYS)
