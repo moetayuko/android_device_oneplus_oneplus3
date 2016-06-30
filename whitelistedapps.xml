@@ -69,4 +69,16 @@
     </ResolutionOverrideApps>
     <GameTriggerApps>
     </GameTriggerApps>
+    <AnimTriggerApps>
+        <AppAttributes
+            PackageName="com.tencent.mm"
+            ActivityName="com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyReceiveUI"
+            WindowAnimationScale = "0"
+            TransitionAnimationScale = "0"
+            AnimatorDurationScale = "0" />
+    </AnimTriggerApps>
+    <NetTriggerApps>
+        <AppAttributes
+            PackageName="com.tencent.mm" />
+    </NetTriggerApps>
 </AppCatalog>
