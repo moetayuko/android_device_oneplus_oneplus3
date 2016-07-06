@@ -173,3 +173,8 @@ Camera.no_navigation_bar=true
 
 #property for game detection feature
 debug.enable.gamed=0
+
+#Disable face beautification
+persist.ts.postmakeup=false
+persist.ts.rtmakeup=false
+
