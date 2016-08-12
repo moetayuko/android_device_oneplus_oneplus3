@@ -179,3 +179,5 @@ debug.enable.gamed=0
 persist.ts.postmakeup=false
 persist.ts.rtmakeup=false
 
+#Enable device orientation sensor
+ro.qti.sensors.dev_ori=true
