@@ -32,6 +32,7 @@ BOOTLOADER_PLATFORM := msm8996 # use msm8996 LK configuration
 TARGET_USES_OVERLAY := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
+QTI_S3D := true # Enable S3D GPU compostion
 
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
@@ -75,6 +76,8 @@ endif
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff
 endif
+
+BOARD_SECCOMP_POLICY := device/qcom/$(TARGET_BOARD_PLATFORM)/seccomp
 
 BOARD_EGL_CFG := device/qcom/$(TARGET_BOARD_PLATFORM)/egl.cfg
 
@@ -140,3 +143,4 @@ TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
 
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
