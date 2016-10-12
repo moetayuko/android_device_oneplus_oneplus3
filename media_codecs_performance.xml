@@ -62,8 +62,8 @@ limitations under the License.
             <Limit name="measured-frame-rate-176x144" range="180-180" />
         </MediaCodec>
         <MediaCodec name="OMX.google.vp8.encoder" type="video/x-vnd.on2.vp8" update="true">
-            <Limit name="measured-frame-rate-320x180" range="39-39" />
-            <Limit name="measured-frame-rate-640x360" range="32-32" />
+            <Limit name="measured-frame-rate-320x180" range="240-250" />
+            <Limit name="measured-frame-rate-640x360" range="50-57" />
             <Limit name="measured-frame-rate-1280x720" range="17-24" />
             <Limit name="measured-frame-rate-1920x1080" range="8-12" />
         </MediaCodec>
