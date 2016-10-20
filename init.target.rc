@@ -343,7 +343,7 @@ service ims_rtp_daemon /system/bin/ims_rtp_daemon
 service imscmservice /system/bin/imscmservice
    class main
    user system
-   group radio diag log
+   group radio diag inet log
    disabled
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
