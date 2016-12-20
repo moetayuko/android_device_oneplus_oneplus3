@@ -1,16 +1,28 @@
-DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
+TARGET_USES_AOSP := true
+TARGET_USES_QCOM_BSP := false
+
+
+ifeq ($(TARGET_USES_AOSP),true)
+
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
+else
+
+#QTIC flag
+-include $(QCPATH)/common/config/qtic-config.mk
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-BOARD_HAVE_QCOM_FM := true
+DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
+endif
+
+
+BOARD_HAVE_QCOM_FM := false
 TARGET_USES_NQ_NFC := false # bring-up hack
 BOARD_FRP_PARTITION_NAME :=frp
 
 TARGET_KERNEL_VERSION := 3.18
 
-#QTIC flag
--include $(QCPATH)/common/config/qtic-config.mk
 
 # Enable features in video HAL that can compile only on this platform
-TARGET_USES_MEDIA_EXTENSIONS := true
+TARGET_USES_MEDIA_EXTENSIONS := false
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
@@ -36,13 +48,13 @@ PRODUCT_DEVICE := msm8996
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := MSM8996 for arm64
 
-PRODUCT_BOOT_JARS += tcmiface
-PRODUCT_BOOT_JARS += telephony-ext
+#PRODUCT_BOOT_JARS += tcmiface
+#PRODUCT_BOOT_JARS += telephony-ext
 
 PRODUCT_PACKAGES += telephony-ext
 
 ifneq ($(strip $(QCPATH)),)
-PRODUCT_BOOT_JARS += WfdCommon
+#PRODUCT_BOOT_JARS += WfdCommon
 #PRODUCT_BOOT_JARS += com.qti.dpmframework
 #PRODUCT_BOOT_JARS += dpmapi
 #PRODUCT_BOOT_JARS += com.qti.location.sdk
@@ -54,7 +66,7 @@ ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio
 endif #BOARD_HAVE_QCOM_FM
 
-PRODUCT_BOOT_JARS += qcmediaplayer
+#PRODUCT_BOOT_JARS += qcmediaplayer
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -130,7 +142,7 @@ PRODUCT_PACKAGES += \
     fs_config_files
 
 # Add the overlay path
-PRODUCT_PACKAGE_OVERLAYS := $(QCPATH)/qrdplus/Extension/res \
+#PRODUCT_PACKAGE_OVERLAYS := $(QCPATH)/qrdplus/Extension/res \
         $(PRODUCT_PACKAGE_OVERLAYS)
 
 # Enable logdumpd service only for non-perf bootimage
