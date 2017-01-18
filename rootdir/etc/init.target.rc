@@ -46,7 +46,7 @@ on fs
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-    export LD_SHIM_LIBS /system/lib/libopcamera_native_modules.so|libcamera_shim.so
+    export LD_SHIM_LIBS /system/lib/libopcamera_native_modules.so|libcamera_shim.so:/system/lib/libFNVfbEngineHAL.so|libcamera_shim.so:/system/vendor/lib/libmmcamera_ppeiscore.so|libcamera_shim.so
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system

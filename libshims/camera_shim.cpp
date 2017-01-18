@@ -17,8 +17,6 @@
 #include <stdio.h>
 #include <string>
 
-const char *_ZN7android18gClientPackageNameE;
-
 extern "C" {
 
 extern ssize_t _ZN7android13SensorManager13getSensorListEPPKPKNS_6SensorE(void*, void*);
