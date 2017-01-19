@@ -173,6 +173,12 @@ typedef struct {
   cam_related_system_calibration_data_t otp_calibration_data;
 } cam_jpeg_metadata_t;
 
+typedef struct {
+  cam_dimension_t  dim;
+  cam_fps_range_t fps;
+  int32_t mode;
+} sensor_res_table_t;
+
 /* capability struct definition for HAL 1*/
 typedef struct{
     cam_hal_version_t version;
@@ -549,6 +555,10 @@ typedef struct{
 
     /* Dual cam calibration data */
     cam_related_system_calibration_data_t related_cam_calibration;
+
+    char sensor_name[128];
+    sensor_res_table_t sensor_res_tbl[MAX_SIZES_CNT];
+    size_t sensor_res_tbl_cnt;
 } cam_capability_t;
 
 typedef enum {
@@ -591,7 +601,7 @@ typedef struct {
 } cam_stream_img_prop_t;
 
 typedef struct {
-    uint8_t enableStream; /*0 – stop and 1-start */
+    uint8_t enableStream; /*0 ï¿½ stop and 1-start */
 } cam_request_frames;
 
 typedef struct {
@@ -682,6 +692,13 @@ typedef struct {
             (&TABLE_PTR->data.member_variable_##META_ID[ 0 ]) : \
             (NULL)); \
         if (NULL != META_PTR_NAME) \
+
+#define IF_META_NOT_AVAILABLE(META_TYPE, META_PTR_NAME, META_ID, TABLE_PTR) \
+        META_TYPE *META_PTR_NAME = \
+        (((NULL != TABLE_PTR) && (TABLE_PTR->is_valid[META_ID])) ? \
+            (&TABLE_PTR->data.member_variable_##META_ID[ 0 ]) : \
+            (NULL)); \
+        if (!META_PTR_NAME) \
 
 #define ADD_SET_PARAM_ENTRY_TO_BATCH(TABLE_PTR, META_ID, DATA) \
     ((NULL != TABLE_PTR) ? \
@@ -785,6 +802,7 @@ typedef struct {
     INCLUDE(CAM_INTF_META_CHROMATIX_LITE_AF,            cam_chromatix_lite_af_stats_t,  1);
     INCLUDE(CAM_INTF_META_CHROMATIX_LITE_ASD,           cam_chromatix_lite_asd_stats_t, 1);
     INCLUDE(CAM_INTF_BUF_DIVERT_INFO,                   cam_buf_divert_info_t,          1);
+    INCLUDE(CAM_INTF_PARM_FACE_BEAUTY_LEVEL,            uint32_t,                       1);
 
     /* Specific to HAL3 */
     INCLUDE(CAM_INTF_META_FRAME_NUMBER_VALID,           int32_t,                     1);
@@ -987,6 +1005,9 @@ typedef struct {
     INCLUDE(CAM_INTF_META_REPROCESS_FLAGS,              uint8_t,                     1);
     INCLUDE(CAM_INTF_PARM_JPEG_ENCODE_CROP,             cam_stream_crop_info_t,      1);
     INCLUDE(CAM_INTF_PARM_JPEG_SCALE_DIMENSION,         cam_dimension_t,             1);
+    /* choose stable frame for image stability */
+    INCLUDE(CAM_INTF_META_FV,                           int,                         1);
+    INCLUDE(CAM_INTF_META_FRAME_SKIP,                   cam_frame_idx_range_t,       1);
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to
