@@ -67,6 +67,10 @@ ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio
 endif #BOARD_HAVE_QCOM_FM
 
+# add vendor manifest file
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8996/vintf.xml:system/vendor/manifest.xml
+
 #PRODUCT_BOOT_JARS += qcmediaplayer
 
 #Android EGL implementation
@@ -97,6 +101,17 @@ PRODUCT_PACKAGES += \
     libantradio \
     antradio_app \
     libvolumelistener
+
+# Gralloc
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.mapper@2.0-impl
+
+# HW Composer
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
