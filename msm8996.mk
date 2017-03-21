@@ -22,6 +22,14 @@ ifneq ($(TARGET_DISABLE_DASH), true)
     PRODUCT_BOOT_JARS += qcmediaplayer
 endif
 
+# video seccomp policy files
+# copy to system/vendor as well (since some devices may symlink to system/vendor and not create an actual partition for vendor)
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8996/seccomp/mediacodec-seccomp.policy:vendor/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8996/seccomp/mediaextractor-seccomp.policy:vendor/etc/seccomp_policy/mediaextractor.policy \
+    device/qcom/msm8996/seccomp/mediacodec-seccomp.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8996/seccomp/mediaextractor-seccomp.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
+
 # Enable features in video HAL that can compile only on this platform
 TARGET_USES_MEDIA_EXTENSIONS := false
 
