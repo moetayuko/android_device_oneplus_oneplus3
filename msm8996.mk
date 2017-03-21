@@ -6,8 +6,6 @@ ifeq ($(TARGET_USES_AOSP),true)
 TARGET_DISABLE_DASH := true
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 else
-#QTIC flag
--include $(QCPATH)/common/config/qtic-config.mk
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 endif
@@ -17,6 +15,9 @@ TARGET_USES_NQ_NFC := false # bring-up hack
 BOARD_FRP_PARTITION_NAME :=frp
 
 TARGET_KERNEL_VERSION := 3.18
+
+#QTIC flag
+-include $(QCPATH)/common/config/qtic-config.mk
 
 ifneq ($(TARGET_DISABLE_DASH), true)
     PRODUCT_BOOT_JARS += qcmediaplayer
@@ -179,7 +180,7 @@ ifeq ($(findstring perf,$(KERNEL_DEFCONFIG)),)
         PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
             ro.logdumpd.enabled=0
     else
-        PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
+        #PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
             ro.logdumpd.enabled=1
     endif
 else
