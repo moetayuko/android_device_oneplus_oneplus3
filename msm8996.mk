@@ -2,18 +2,15 @@ TARGET_USES_AOSP := true
 TARGET_USES_AOSP_FOR_AUDIO := true
 TARGET_USES_QCOM_BSP := false
 
-
 ifeq ($(TARGET_USES_AOSP),true)
-
+TARGET_DISABLE_DASH := true
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 else
-
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 endif
-
 
 BOARD_HAVE_QCOM_FM := false
 TARGET_USES_NQ_NFC := false # bring-up hack
@@ -21,6 +18,17 @@ BOARD_FRP_PARTITION_NAME :=frp
 
 TARGET_KERNEL_VERSION := 3.18
 
+ifneq ($(TARGET_DISABLE_DASH), true)
+    PRODUCT_BOOT_JARS += qcmediaplayer
+endif
+
+# video seccomp policy files
+# copy to system/vendor as well (since some devices may symlink to system/vendor and not create an actual partition for vendor)
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8996/seccomp/mediacodec-seccomp.policy:vendor/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8996/seccomp/mediaextractor-seccomp.policy:vendor/etc/seccomp_policy/mediaextractor.policy \
+    device/qcom/msm8996/seccomp/mediacodec-seccomp.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8996/seccomp/mediaextractor-seccomp.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
 
 # Enable features in video HAL that can compile only on this platform
 TARGET_USES_MEDIA_EXTENSIONS := false
@@ -71,8 +79,6 @@ endif #BOARD_HAVE_QCOM_FM
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/vintf.xml:system/vendor/manifest.xml
 
-#PRODUCT_BOOT_JARS += qcmediaplayer
-
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
@@ -116,6 +122,12 @@ PRODUCT_PACKAGES += \
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/sensors/hals.conf:system/etc/sensors/hals.conf
+
+# Camera configuration file. Shared by passthrough/binderized camera HAL
+PRODUCT_PACKAGES += camera.device@3.2-impl
+PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
+# Enable binderized camera HAL
+PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service
 
 # Sensor features
 PRODUCT_COPY_FILES += \
