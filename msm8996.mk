@@ -186,6 +186,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # List of AAPT configurations
 PRODUCT_AAPT_CONFIG += xlarge large
 
+# Powerhint configuration file
+PRODUCT_COPY_FILES += \
+device/qcom/msm8998/powerhint.xml:system/etc/powerhint.xml
+
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
