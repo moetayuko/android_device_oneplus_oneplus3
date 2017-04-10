@@ -78,7 +78,7 @@ endif #BOARD_HAVE_QCOM_FM
 
 # add vendor manifest file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/vintf.xml:system/vendor/manifest.xml
+    device/qcom/msm8996/vintf.xml:$(TARGET_OUT_VENDOR)/manifest.xml
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -162,7 +162,7 @@ PRODUCT_COPY_FILES += \
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
+    device/qcom/msm8996/msm_irqbalance.conf:$(TARGET_OUT_VENDOR_ETC)/msm_irqbalance.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
