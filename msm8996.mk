@@ -4,11 +4,11 @@ TARGET_USES_QCOM_BSP := false
 
 ifeq ($(TARGET_USES_AOSP),true)
 TARGET_DISABLE_DASH := true
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 else
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 endif
+
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Default vendor configuration.
 ifeq ($(ENABLE_VENDOR_IMAGE),)
