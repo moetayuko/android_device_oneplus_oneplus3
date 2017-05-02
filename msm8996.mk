@@ -192,7 +192,7 @@ PRODUCT_AAPT_CONFIG += xlarge large
 
 # Powerhint configuration file
 PRODUCT_COPY_FILES += \
-device/qcom/msm8998/powerhint.xml:system/etc/powerhint.xml
+device/qcom/msm8996/powerhint.xml:system/etc/powerhint.xml
 
 #Healthd packages
 PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
