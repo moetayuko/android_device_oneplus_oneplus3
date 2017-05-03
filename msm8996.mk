@@ -12,7 +12,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Default vendor configuration.
 ifeq ($(ENABLE_VENDOR_IMAGE),)
-ENABLE_VENDOR_IMAGE := false
+ENABLE_VENDOR_IMAGE := true
 endif
 
 # Disable QTIC until it's brought up in split system/vendor
