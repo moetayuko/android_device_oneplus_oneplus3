@@ -70,7 +70,7 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
-VENDOR_FSTAB_ENTRY := "/dev/block/bootdevice/by-name/vendor     /vendor            ext4   ro,barrier=1,discard                             wait,slotselect,verify"
+VENDOR_FSTAB_ENTRY := "/dev/block/bootdevice/by-name/vendor     /vendor            ext4   ro,barrier=1,discard                             wait,verify"
 endif
 
 TARGET_USES_ION := true
@@ -126,6 +126,8 @@ TARGET_PD_SERVICE_ENABLED := true
 
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
+
+DEX_PREOPT_DEFAULT := nostripping
 
 # Enable dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
