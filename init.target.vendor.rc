@@ -57,3 +57,9 @@ on boot
 
 # Add target specific vendor service definitions, triggers from here on.
 
+service ppd /vendor/bin/mm-pp-dpps
+    class late_start
+    user system
+    group system graphics
+    socket pps stream 0660 system system
+    disabled
