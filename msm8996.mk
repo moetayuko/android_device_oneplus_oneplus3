@@ -136,6 +136,10 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
     android.hardware.configstore@1.0-service
 
+PRODUCT_PACKAGES += \
+    vendor.display.color@1.0-service \
+    vendor.display.color@1.0-impl
+
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
