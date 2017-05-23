@@ -380,13 +380,6 @@ service dtseagleservice /system/bin/dts_eagle_service
 on property:init.svc.dts_configurator=stopped
     start dtseagleservice
 
-service ppd /system/vendor/bin/mm-pp-dpps
-    class late_start
-    user system
-    group system graphics
-    socket pps stream 0660 system system
-    disabled
-
 on property:init.svc.surfaceflinger=stopped
     stop ppd
 

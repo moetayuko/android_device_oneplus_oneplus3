@@ -25,14 +25,41 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Vendor variant of recovery.fstab. Same as recovery.fstab, with additional vendor entry.
+################################################################################################
+# This init.target.vendor.rc script is similar to init.target.rc, but is intended to contain   #
+# target specific vendor service definitions, triggers etc. This goes into /vendor/etc/init.   #
+################################################################################################
 
-#device         mount point      fstype        [device2] [length=]
+on early-init
+    # Add on early-init events here
 
-/dev/block/bootdevice/by-name/system       /               ext4    ro,barrier=1                                                    wait,verify
-/dev/block/bootdevice/by-name/vendor       /vendor         ext4    ro,barrier=1                                                    wait,verify
-/dev/block/bootdevice/by-name/userdata     /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc     wait,check,encryptable=footer
-/dev/block/mmcblk0p1                       /sdcard         vfat    nosuid,nodev                                                    wait
-/dev/block/bootdevice/by-name/boot         /boot           emmc    defaults                                                        defaults
-/dev/block/bootdevice/by-name/recovery     /recovery       emmc    defaults                                                        defaults
-/dev/block/bootdevice/by-name/misc         /misc           emmc    defaults                                                        defaults
+on init
+    # Add on init events here
+
+on late-init
+    # Add on late-init events here
+
+on fs
+    # Add on fs events here
+
+on post-fs
+    # Add on post-fs events here
+
+on post-fs-data
+    # Add on post-fs-data events here
+
+on early-boot
+    # Add on early-boot events here
+
+on boot
+    # Add on boot events here
+
+
+# Add target specific vendor service definitions, triggers from here on.
+
+service ppd /vendor/bin/mm-pp-dpps
+    class late_start
+    user system
+    group system graphics
+    socket pps stream 0660 system system
+    disabled

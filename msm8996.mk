@@ -1,5 +1,5 @@
 TARGET_USES_AOSP := true
-TARGET_USES_AOSP_FOR_AUDIO := true
+TARGET_USES_AOSP_FOR_AUDIO := false
 TARGET_USES_QCOM_BSP := false
 
 ifeq ($(TARGET_USES_AOSP),true)
@@ -44,9 +44,11 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
-PRODUCT_COPY_FILES += device/qcom/msm8996/media_profiles.xml:system/etc/media_profiles.xml \
-                      device/qcom/msm8996/media_codecs.xml:system/etc/media_codecs.xml \
-                      device/qcom/msm8996/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8996/media_profiles.xml:system/etc/media_profiles.xml \
+    device/qcom/msm8996/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+    device/qcom/msm8996/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    device/qcom/msm8996/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
 PRODUCT_COPY_FILES += device/qcom/msm8996/whitelistedapps.xml:system/etc/whitelistedapps.xml \
@@ -135,6 +137,14 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
     android.hardware.configstore@1.0-service
 
+PRODUCT_PACKAGES += \
+    vendor.display.color@1.0-service \
+    vendor.display.color@1.0-impl
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service \
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
