@@ -122,8 +122,6 @@ ifneq ($(TARGET_USES_AOSP), true)
 #Enable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
 endif
-#Enable PD locater/notifier
-TARGET_PD_SERVICE_ENABLED := true
 
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
