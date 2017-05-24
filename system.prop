@@ -172,6 +172,9 @@ sdm.debug.disable_rotator_split=1
 #Increase cached app limit
 ro.vendor.qti.sys.fw.bg_apps_limit=60
 
+# Create zram disk
+ro.vendor.qti.config.zram=true
+
 #Camera fullscreen doesn't show navigation bar
 Camera.no_navigation_bar=true
 
