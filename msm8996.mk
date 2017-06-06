@@ -79,7 +79,7 @@ PRODUCT_BOOT_JARS += telephony-ext
 PRODUCT_PACKAGES += telephony-ext
 
 ifneq ($(strip $(QCPATH)),)
-#PRODUCT_BOOT_JARS += WfdCommon
+PRODUCT_BOOT_JARS += WfdCommon
 #PRODUCT_BOOT_JARS += com.qti.dpmframework
 #PRODUCT_BOOT_JARS += dpmapi
 #PRODUCT_BOOT_JARS += com.qti.location.sdk
