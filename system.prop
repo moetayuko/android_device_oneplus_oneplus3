@@ -54,10 +54,10 @@ persist.mm.enable.prefetch=true
 vidc.enc.dcvs.extra-buff-count=2
 
 # Set default power mode to low power for encoder
-vidc.debug.perf.mode=2
+vendor.vidc.debug.perf.mode=2
 
 # disable PQ feature by default
-vidc.enc.disable.pq=true
+vendor.vidc.enc.disable.pq=true
 
 #
 # system props for the data modules
