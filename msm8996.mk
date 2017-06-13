@@ -15,6 +15,9 @@ ifeq ($(ENABLE_VENDOR_IMAGE),)
 ENABLE_VENDOR_IMAGE := true
 endif
 
+# Default A/B configuration.
+ENABLE_AB ?= false
+
 # Disable QTIC until it's brought up in split system/vendor
 # configuration to avoid compilation breakage.
 ifeq ($(ENABLE_VENDOR_IMAGE), true)
@@ -268,3 +271,16 @@ PRODUCT_LOCALES += th_TH vi_VN tl_PH hi_IN ar_EG ru_RU tr_TR pt_BR bn_IN mr_IN t
         in_ID my_MM km_KH sw_KE uk_UA pl_PL sr_RS sl_SI fa_IR kn_IN ml_IN ur_IN gu_IN or_IN
 
 PRODUCT_PROPERTY_OVERRIDES += rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+
+ifeq ($(ENABLE_AB),true)
+#A/B related packages
+PRODUCT_PACKAGES += update_engine \
+                   update_engine_client \
+                   update_verifier \
+                   bootctrl.msm8996 \
+                   brillo_update_payload \
+                   android.hardware.boot@1.0-impl \
+                   android.hardware.boot@1.0-service
+#Boot control HAL test app
+PRODUCT_PACKAGES_DEBUG += bootctl
+endif
