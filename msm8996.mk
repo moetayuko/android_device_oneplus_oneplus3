@@ -21,7 +21,7 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 TARGET_USES_QTIC := false
 endif
 
-BOARD_HAVE_QCOM_FM := false
+BOARD_HAVE_QCOM_FM := true
 TARGET_USES_NQ_NFC := false # bring-up hack
 BOARD_FRP_PARTITION_NAME :=frp
 
