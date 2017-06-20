@@ -54,10 +54,10 @@ persist.mm.enable.prefetch=true
 vidc.enc.dcvs.extra-buff-count=2
 
 # Set default power mode to low power for encoder
-vidc.debug.perf.mode=2
+vendor.vidc.debug.perf.mode=2
 
 # disable PQ feature by default
-vidc.enc.disable.pq=true
+vendor.vidc.enc.disable.pq=true
 
 #
 # system props for the data modules
@@ -170,7 +170,10 @@ persist.sys.pd_enable=0
 sdm.debug.disable_rotator_split=1
 
 #Increase cached app limit
-ro.sys.fw.bg_apps_limit=60
+ro.vendor.qti.sys.fw.bg_apps_limit=60
+
+# Create zram disk
+ro.vendor.qti.config.zram=true
 
 #Camera fullscreen doesn't show navigation bar
 Camera.no_navigation_bar=true

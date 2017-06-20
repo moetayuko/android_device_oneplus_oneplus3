@@ -28,19 +28,19 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <manifest version="1.0" type="device">
     <hal format="hidl">
         <name>android.hardware.audio</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
     </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
     </hal>
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
         <interface>
@@ -60,6 +60,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>1.0</version>
+        <interface>
+            <name>IOmx</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IOmxStore</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <!-- /video omx hal -->
     <!-- display -->
@@ -240,6 +248,16 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.qti.gnss</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+        <interface>
+            <name>ILocHidlGnss</name>
+            <instance>gnss_vendor</instance>
+        </interface>
+    </hal>
     <!-- atfwd -->
     <hal format="hidl">
         <name>vendor.qti.atcmdfwd</name>
@@ -263,13 +281,24 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </hal>
     <!-- IMS RTP Service -->
     <hal format="hidl">
-            <name>com.qualcomm.qti.imsrtpservice</name>
-            <transport>hwbinder</transport>
-            <impl level="generic"></impl>
-            <version>1.0</version>
-            <interface>
-                  <name>IRTPService</name>
-                  <instance>rtpservice0</instance>
-            </interface>
-     </hal>
+        <name>com.qualcomm.qti.imsrtpservice</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+        <interface>
+            <name>IRTPService</name>
+            <instance>imsrtpservice</instance>
+        </interface>
+    </hal>
+    <!-- Perf HAL service -->
+    <hal format="hidl">
+       <name>vendor.qti.hardware.perf</name>
+       <transport>hwbinder</transport>
+       <impl level="generic"></impl>
+       <version>1.0</version>
+       <interface>
+            <name>IPerf</name>
+            <instance>default</instance>
+       </interface>
+    </hal>
 </manifest>
