@@ -21,7 +21,7 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 TARGET_USES_QTIC := false
 endif
 
-BOARD_HAVE_QCOM_FM := false
+BOARD_HAVE_QCOM_FM := true
 TARGET_USES_NQ_NFC := false # bring-up hack
 BOARD_FRP_PARTITION_NAME :=frp
 
@@ -153,7 +153,7 @@ PRODUCT_PACKAGES += \
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/sensors/hals.conf:system/etc/sensors/hals.conf
+    device/qcom/msm8996/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
 PRODUCT_PACKAGES += camera.device@3.2-impl
