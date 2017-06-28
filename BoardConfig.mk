@@ -162,3 +162,6 @@ TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
 
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+
+#Enable early mount support for mmc/ufs
+EARLY_MOUNT_SUPPORT := true
