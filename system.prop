@@ -19,6 +19,7 @@ DEVICE_PROVISIONED=1
 # Start in global mode
 ro.telephony.default_network=10
 
+debug.sf.enable_hwc_vds=1
 debug.sf.hw=1
 debug.egl.hw=1
 debug.gralloc.enable_fb_ubwc=1
