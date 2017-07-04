@@ -70,7 +70,7 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
-VENDOR_FSTAB_ENTRY := "/dev/block/bootdevice/by-name/vendor     /vendor            ext4   ro,barrier=1,discard                             wait,verify"
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 endif
 
 TARGET_USES_ION := true
@@ -143,6 +143,9 @@ endif
 
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
+
+#Enable early mount support for mmc/ufs
+EARLY_MOUNT_SUPPORT := true
 
 # Enable build with MSM kernel
 TARGET_COMPILE_WITH_MSM_KERNEL := true
