@@ -103,7 +103,7 @@ PRODUCT_PACKAGES += libGLES_android
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+    device/qcom/msm8996/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # MIDI feature
 PRODUCT_COPY_FILES += \
@@ -140,7 +140,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service \
-    android.hardware.configstore@1.0-service
+    android.hardware.configstore@1.0-service \
+    android.hardware.broadcastradio@1.0-impl
 
 PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
@@ -215,6 +216,8 @@ PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
                    android.hardware.health@1.0-service \
                    libhealthd.msm
 
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
@@ -242,8 +245,6 @@ ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
         MULTI_LANG_ENGINE := REVERIE
 endif
 
-#Enable keymaster Impl HAL Compilation
-PRODUCT_PACKAGES += android.hardware.keymaster@3.0-impl
 #Enable Lights Impl HAL Compilation
 PRODUCT_PACKAGES += android.hardware.light@2.0-impl
 # Defined the locales
