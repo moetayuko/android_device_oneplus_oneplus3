@@ -429,3 +429,10 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 	class late_start
 	disabled
 	oneshot
+
+service ppd /vendor/bin/mm-pp-dpps
+    class late_start
+    user system
+    group system graphics
+    socket pps stream 0660 system system
+    disabled
