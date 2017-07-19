@@ -237,10 +237,10 @@ else
         ro.logdumpd.enabled=0
 endif
 
--include $(QCPATH)/common/config/rendering-engine.mk
-ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
-        MULTI_LANG_ENGINE := REVERIE
-endif
+#-include $(QCPATH)/common/config/rendering-engine.mk
+#ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
+#        MULTI_LANG_ENGINE := REVERIE
+#endif
 
 #Enable keymaster Impl HAL Compilation
 PRODUCT_PACKAGES += android.hardware.keymaster@3.0-impl
