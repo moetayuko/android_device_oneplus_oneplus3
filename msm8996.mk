@@ -242,10 +242,10 @@ else
         ro.logdumpd.enabled=0
 endif
 
--include $(QCPATH)/common/config/rendering-engine.mk
-ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
-        MULTI_LANG_ENGINE := REVERIE
-endif
+#-include $(QCPATH)/common/config/rendering-engine.mk
+#ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
+#        MULTI_LANG_ENGINE := REVERIE
+#endif
 
 #Enable Lights Impl HAL Compilation
 PRODUCT_PACKAGES += android.hardware.light@2.0-impl
