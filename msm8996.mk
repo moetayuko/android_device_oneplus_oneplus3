@@ -71,6 +71,15 @@ $(call inherit-product, device/qcom/common/common64.mk)
 #msm8996 platform WLAN Chipset
 WLAN_CHIPSET := qca_cld
 
+
+# system prop for opengles version
+#
+# 196608 is decimal for 0x30000 to report version 3
+# 196609 is decimal for 0x30001 to report version 3.1
+# 196610 is decimal for 0x30002 to report version 3.2
+PRODUCT_PROPERTY_OVERRIDES  += \
+    ro.opengles.version=196610
+
 PRODUCT_NAME := msm8996
 PRODUCT_DEVICE := msm8996
 PRODUCT_BRAND := Android
