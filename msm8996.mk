@@ -105,7 +105,7 @@ endif #BOARD_HAVE_QCOM_FM
 
 # add vendor manifest file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8996/vintf.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+    device/qcom/msm8996/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
