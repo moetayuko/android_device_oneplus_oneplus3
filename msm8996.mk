@@ -15,6 +15,9 @@ ifeq ($(ENABLE_VENDOR_IMAGE),)
 ENABLE_VENDOR_IMAGE := true
 endif
 
+# Default A/B configuration.
+ENABLE_AB ?= false
+
 # Disable QTIC until it's brought up in split system/vendor
 # configuration to avoid compilation breakage.
 ifeq ($(ENABLE_VENDOR_IMAGE), true)
@@ -46,7 +49,7 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/media_profiles.xml:system/etc/media_profiles.xml \
-    device/qcom/msm8996/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+    device/qcom/msm8996/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
     device/qcom/msm8996/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     device/qcom/msm8996/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
@@ -67,6 +70,15 @@ $(call inherit-product, device/qcom/common/common64.mk)
 
 #msm8996 platform WLAN Chipset
 WLAN_CHIPSET := qca_cld
+
+
+# system prop for opengles version
+#
+# 196608 is decimal for 0x30000 to report version 3
+# 196609 is decimal for 0x30001 to report version 3.1
+# 196610 is decimal for 0x30002 to report version 3.2
+PRODUCT_PROPERTY_OVERRIDES  += \
+    ro.opengles.version=196610
 
 PRODUCT_NAME := msm8996
 PRODUCT_DEVICE := msm8996
@@ -242,13 +254,42 @@ else
         ro.logdumpd.enabled=0
 endif
 
--include $(QCPATH)/common/config/rendering-engine.mk
-ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
-        MULTI_LANG_ENGINE := REVERIE
-endif
+#-include $(QCPATH)/common/config/rendering-engine.mk
+#ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
+#        MULTI_LANG_ENGINE := REVERIE
+#endif
 
 #Enable Lights Impl HAL Compilation
 PRODUCT_PACKAGES += android.hardware.light@2.0-impl
+
+#set KMGK_USE_QTI_SERVICE to true to enable QTI KEYMASTER and GATEKEEPER HIDLs
+ifeq ($(ENABLE_VENDOR_IMAGE), true)
+KMGK_USE_QTI_SERVICE := false
+endif
+
+#Enable AOSP KEYMASTER and GATEKEEPER HIDLs
+ifneq ($(KMGK_USE_QTI_SERVICE), true)
+PRODUCT_PACKAGES += android.hardware.gatekeeper@1.0-impl \
+                    android.hardware.gatekeeper@1.0-service \
+                    android.hardware.keymaster@3.0-impl \
+                    android.hardware.keymaster@3.0-service
+endif
+
 # Defined the locales
 PRODUCT_LOCALES += th_TH vi_VN tl_PH hi_IN ar_EG ru_RU tr_TR pt_BR bn_IN mr_IN ta_IN te_IN zh_HK \
         in_ID my_MM km_KH sw_KE uk_UA pl_PL sr_RS sl_SI fa_IR kn_IN ml_IN ur_IN gu_IN or_IN
+
+PRODUCT_PROPERTY_OVERRIDES += rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+
+ifeq ($(ENABLE_AB),true)
+#A/B related packages
+PRODUCT_PACKAGES += update_engine \
+                   update_engine_client \
+                   update_verifier \
+                   bootctrl.msm8996 \
+                   brillo_update_payload \
+                   android.hardware.boot@1.0-impl \
+                   android.hardware.boot@1.0-service
+#Boot control HAL test app
+PRODUCT_PACKAGES_DEBUG += bootctl
+endif
