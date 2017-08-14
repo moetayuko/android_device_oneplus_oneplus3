@@ -7,7 +7,7 @@
 
 #<src>                                  <mnt_point>       <type>  <mnt_flags and options>                     <fs_mgr_flags>
 #/dev/block/bootdevice/by-name/system    /system           ext4    ro,barrier=1,discard                                wait,verify
-/dev/block/bootdevice/by-name/userdata  /data             ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,discard  wait,forceencrypt=footer
+/dev/block/bootdevice/by-name/userdata  /data             ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,discard  wait,forceencrypt=footer,quota
 /devices/soc/74a4900.sdhci/mmc_host*    /storage/sdcard1  vfat    nosuid,nodev                                        wait,voldmanaged=sdcard1:auto,encryptable=footer
 /dev/block/bootdevice/by-name/misc      /misc             emmc    defaults                                            defaults
 /dev/block/bootdevice/by-name/cache     /cache            ext4    noatime,nosuid,nodev,barrier=1                      wait
