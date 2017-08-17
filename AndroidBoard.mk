@@ -154,12 +154,6 @@ endif
 #Create dsp directory
 $(shell mkdir -p $(TARGET_OUT_VENDOR)/lib/dsp)
 
-# Create symbolic links for msadp
-$(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware; \
-        ln -sf /dev/block/bootdevice/by-name/msadp \
-        $(TARGET_OUT_VENDOR)/firmware/msadp)
-
-
 #----------------------------------------------------------------------
 # ultrasound support
 #----------------------------------------------------------------------
