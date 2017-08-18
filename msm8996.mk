@@ -258,6 +258,10 @@ endif
 #        MULTI_LANG_ENGINE := REVERIE
 #endif
 
+PRODUCT_PACKAGES += \
+    libandroid_net \
+    libandroid_net_32
+
 #Enable Lights Impl HAL Compilation
 PRODUCT_PACKAGES += android.hardware.light@2.0-impl
 
