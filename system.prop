@@ -147,6 +147,8 @@ ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
 
+#default usb composition
+persist.sys.usb.config=diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
 
 # enable navigation bar
 qemu.hw.mainkeys=0
