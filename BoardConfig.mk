@@ -143,10 +143,9 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 #Enable Peripheral Manager
 TARGET_PER_MGR_ENABLED := true
 
-ifneq ($(TARGET_USES_AOSP), true)
-#Enable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
-endif
+
+TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
@@ -181,8 +180,6 @@ PROTOBUF_SUPPORTED := false
 #Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES := true
 TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
-
-TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
