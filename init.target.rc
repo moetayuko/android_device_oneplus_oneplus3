@@ -44,7 +44,7 @@ on fs
     # results in failure to launch late-start class.
 
     wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist noatime nosuid nodev barrier=1
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
@@ -209,6 +209,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
+   socket thermal-send-rule stream 0660 system system
    group root
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
@@ -394,7 +395,7 @@ service energy-awareness /system/vendor/bin/energy-awareness
     group system
     oneshot
 
-service hvdcp_opti /system/bin/hvdcp_opti
+service hvdcp_opti /system/vendor/bin/hvdcp_opti
     class main
     user root
     group root

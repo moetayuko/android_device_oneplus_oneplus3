@@ -56,9 +56,6 @@ persist.mm.enable.prefetch=true
 # Additional i/p buffer in case of encoder DCVS
 vidc.enc.dcvs.extra-buff-count=2
 
-# Set default power mode to low power for encoder
-vendor.vidc.debug.perf.mode=2
-
 # disable PQ feature by default
 vendor.vidc.enc.disable.pq=true
 
@@ -149,9 +146,6 @@ ro.hwui.text_large_cache_height=1024
 
 #default usb composition
 persist.sys.usb.config=diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
-
-# enable navigation bar
-qemu.hw.mainkeys=0
 
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1

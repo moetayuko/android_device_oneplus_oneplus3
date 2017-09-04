@@ -4,10 +4,9 @@ TARGET_USES_QCOM_BSP := false
 
 ifeq ($(TARGET_USES_AOSP),true)
 TARGET_DISABLE_DASH := true
-else
-DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 endif
 
+DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Default vendor configuration.
@@ -32,6 +31,10 @@ TARGET_KERNEL_VERSION := 3.18
 
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
+
+# Add soft home, back and multitask keys
+PRODUCT_PROPERTY_OVERRIDES += \
+    qemu.hw.mainkeys=0
 
 ifneq ($(TARGET_DISABLE_DASH), true)
     PRODUCT_BOOT_JARS += qcmediaplayer
