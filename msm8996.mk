@@ -299,3 +299,16 @@ PRODUCT_PACKAGES += update_engine \
 #Boot control HAL test app
 PRODUCT_PACKAGES_DEBUG += bootctl
 endif
+
+# system prop for Bluetooth SOC type
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=rome
+
+# Set this true as ROME which is programmed
+# as embedded wipower mode by deafult
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bluetooth.emb_wp_mode=true
+
+#system prop for wipower support
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bluetooth.wipower=true
