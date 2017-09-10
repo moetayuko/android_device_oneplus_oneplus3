@@ -238,6 +238,7 @@ PRODUCT_PACKAGES += \
     gps.msm8996 \
     libcurl \
     libgnsspps \
+    libshims_get_process_name \
     android.hardware.gnss@1.0-impl-qti \
     android.hardware.gnss@1.0-service-qti
 
