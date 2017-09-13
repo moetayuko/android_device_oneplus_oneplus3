@@ -278,6 +278,7 @@ vendor/lib/libsmwrapper.so
 # Media
 lib/libOmxVpp.so
 lib/libvpplibrary.so
+-vendor/lib/libgpustats.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
@@ -286,6 +287,7 @@ vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
+-vendor/lib64/libgpustats.so
 
 # Network
 -priv-app/QtiTetherService/QtiTetherService.apk
