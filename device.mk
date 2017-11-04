@@ -229,7 +229,6 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8996 \
     libcurl \
     libgnsspps \
     android.hardware.gnss@1.0-impl-qti \
